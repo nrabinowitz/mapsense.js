@@ -61,7 +61,7 @@ var map = po.map()
   .add(po.touch())
   .add(po.arrow())
   .center({lon: -122.397231960, lat: 37.788079})
-  .zoomRange([ZOOM_MIN, ZOOM_MAX])
+  .zoomRange([16, 16])
   .zoom(16);
 
 var gj = po.d3GeoJson(topoToGeo)
