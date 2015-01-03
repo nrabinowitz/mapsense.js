@@ -1,0 +1,103 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="http://d3js.org/topojson.v1.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="https://rawgit.com/erex78/a488f626e196e43adec9/raw/5aa537595814231ca7e0e71382c8967cbbec4c78/polymaps.js" charset="utf-8"></script>
+  <link href="parchment.css" rel="stylesheet">
+  <style>
+    .map {
+      background-color: white;
+      width: 100%;
+      height: 100%;
+    }
+    .mapFeatures {
+      vector-effect: non-scaling-stroke;
+      stroke-linejoin: round;
+      stroke: white;
+      fill : steelblue;
+      stroke-linecap: round;
+    }
+    .rectile {
+      fill: white; }
+    </style>
+
+  </head>
+
+  <body>
+    <script>
+
+      /**
+       * Transition the map over the great arc from its center to 'to'.
+       *
+       * @param map The map
+       * @param to [lon, lat]
+       * @param duration The length of the transition, in millis.
+       * @param ease An optional easing function, as produced by d3.ease.
+       *  Defaults to d3.ease('cubic-in-out').
+       */
+      function panBounce(map, to, duration, ease) {
+        if (!ease) ease = d3.ease('cubic-in-out');
+        var from = [map.center().lon, map.center().lat];
+        var interp = d3.geo.interpolate(from, to);
+        var start = Date.now();
+        function t() { return (Date.now() - start) / duration; };
+        d3.timer(function() {
+          var _t = t();
+          if (_t < 1) {
+            var mid = interp(ease(_t));
+            map.center({lon: mid[0], lat: mid[1]});
+            return false;
+          } else {
+            map.center({lon: to[0], lat: to[1]});
+            panBounce(map, from, duration, ease); 
+            return true;
+          }
+        });
+      }
+
+      var po = org.polymaps;
+
+      var mapDiv = d3.select('body')
+          .append('div').append('svg').attr('class', 'map')
+
+      var requestParams = {
+        invertTileY: true,
+        invertY: false,
+        s: 5,
+        ringSpan: 7,
+        srid: 4326
+      };
+
+      var url = "http://tiles.mapsense.co/tilist/tile/citrus/{Z}/{X}/{Y}.topojson?";
+      url += Object.keys(requestParams).map(function(k) {
+        return k + '=' + requestParams[k];
+      }).join('&');
+      var map = po.map()
+        .container(mapDiv.node())
+        .add(po.interact())
+        .center({lon: -122.4, lat: 37.8})
+        .zoom(15);
+
+      var tj = po.d3TopoJson()
+        .url(url)
+        .attr('class', function(d) {
+          var classes = [];
+          if (d.properties) {
+            if (d.properties.layer)
+              classes.push(d.properties.layer);
+            if (d.properties.sub_layer)
+              classes.push(d.properties.sub_layer);
+          }
+          return classes.join(' ');
+          })
+        .tile(true)
+        .clip(true);
+
+      map.add(tj);
+
+      panBounce(map, [ -122.279109, 37.838074], 2500)
+
+    </script>
+  </body>
+  </html>

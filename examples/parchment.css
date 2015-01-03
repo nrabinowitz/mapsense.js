@@ -1,0 +1,336 @@
+.labels{
+font-size: 14;
+fill: #777;
+font-weight: 600;
+text-transform: uppercase;
+stroke-width: .3;
+/*stroke: grey;*/
+font-stretch: expanded;
+letter-spacing: 1.5;
+font-family: Josefin sans;
+}
+.map {
+background-color: white;
+}
+path {
+vector-effect: non-scaling-stroke;
+stroke-linejoin: round;
+stroke-linecap: round;
+fill: none;
+}
+.rectile {
+fill: rgb(184, 189, 193);
+}
+.admin {
+fill: none;
+}
+path._undefined.none {
+fill: none;
+}
+.land_polygons_complete {
+fill: rgb(227, 214, 197);
+stroke: rgb(151, 111, 96);
+stroke-width: 1;
+}
+.water {
+fill: rgba(100,150,250,0);
+stroke: black;
+stroke-width: .1;
+}
+.water4 {
+fill: rgb(184, 189, 193);
+stroke: rgb(151, 111, 96);
+stroke-width: .5;
+}
+.water10 {
+fill: rgb(186, 189, 193);
+}
+.water13 {
+fill: rgb(184, 189, 193);
+}
+.waterway13 {
+stroke: rgb(184, 189, 193);
+stroke-width: 1;
+opacity: .3
+fill: none;
+}
+.waterway15 {
+stroke: rgb(184, 189, 193);
+stroke-width: 1;
+opacity: .3;
+fill: none;
+}
+.landuse_natural5 {
+fill: rgb(223, 208, 186);
+stroke-width: .55;
+stroke: none;
+}
+.landuse_natural10 {
+fill: rgb(223, 208, 186);
+stroke-width: .55;
+stroke: none;
+}
+.landuse_natural13 {
+fill: rgb(223, 208, 186);
+stroke-width: .55;
+stroke: none;
+}
+.landuse_building13 {
+fill: rgb(212, 201, 186);
+stroke: none;
+stroke-width: .52;
+}
+.landuse_school13 {
+fill: rgba(90, 46, 5, 0.12);
+stroke: none;
+}
+.landuse_other13 {
+fill: rgb(227, 214, 197);
+stroke: none;
+}
+.landuse_urban11 {
+fill: rgba(255, 255, 255, 0.3);
+stroke: none;
+}
+.roads {
+stroke-linejoin: round;
+fill: none;
+}
+.ne_roads {
+stroke: rgb(174, 162, 149);
+stroke-width: 1;
+}
+.motorway {
+stroke: rgb(161, 141, 127);
+stroke-width: 1;
+}
+.trunk_primary {
+stroke: rgb(213, 197, 183);
+stroke-width: 1;
+}
+.secondary {
+stroke: rgb(202, 183, 170);
+stroke-width: 1;
+}
+.tertiary {
+stroke: rgb(216, 200, 187);
+stroke-width: 1;
+}
+.majorlinks {
+stroke: rgb(186, 165, 146);
+stroke-width: 1;
+}
+.residential {
+stroke: rgba(198, 176, 159, 0.55);
+stroke-width: 1;
+}
+.minorlinks {
+stroke: rgb(158, 127, 98);
+stroke-width: 1;
+}
+.service {
+stroke: rgb(218, 201, 184);
+stroke-width: 1;
+}
+.rail {
+stroke: rgb(151, 125, 101);
+stroke-dasharray: 3 5;
+stroke-width: 1;
+}
+.minorrail {
+stroke: rgb(172, 157, 140);
+stroke-dasharray: 3 3;
+stroke-width: 1;
+}
+.runway {
+stroke-width: black;
+stroke: rgb(198, 165, 144);
+}
+.path {
+stroke: rgb(185,185,185);
+stroke-dasharray: 3 3;
+stroke-width: 1;
+}
+
+.admin_2{
+stroke: rgb(151, 111, 96);
+stroke-dasharray: 6 2;
+stroke-width: 1;
+}
+.admin_4{
+stroke: rgb(151, 111, 96);
+stroke-dasharray: 3 3;
+}
+
+
+
+}
+.secondary._11{
+stroke-width: 1.5;
+}
+.tertiary._11{
+stroke-width: 1;
+}
+
+/*zoom 12*/
+.motorway._12{
+stroke-width: 2.5;
+}
+.majorlinks._12{
+stroke: rgb(236, 165, 58);
+}
+.trunk_primary._12{
+stroke-width: 2;
+}
+.secondary._12{
+stroke-width: 1.75;
+}
+.tertiary._12{
+stroke-width: 1;
+}
+.residential._12{
+stroke-width: .5;
+}
+
+/*zoom 13*/
+.majorlinks._13{
+stroke-width: 1.5;
+}
+.motorway._13{
+stroke-width: 3.5;
+}
+.trunk_primary._13{
+stroke-width: 2.5;
+}
+.secondary._13{
+stroke-width: 2;
+}
+.tertiary._13{
+stroke-width: 1.5;
+}
+.residential._13{
+stroke-width: 1;
+}
+
+/*zoom 14*/
+.majorlinks._14{
+stroke-width: 2;
+}
+.motorway._14{
+stroke-width: 5;
+}
+.trunk_primary._14{
+stroke-width: 3;
+}
+.secondary._14{
+stroke-width: 2;
+}
+.tertiary._14{
+stroke-width: 1.5;
+}
+.residential._14{
+stroke-width: 1;
+}
+
+/*zoom 15*/
+.majorlinks._15{
+stroke-width: 4.5;
+}
+.motorway._15 {
+stroke-width: 8.5;
+}
+.trunk_primary._15 {
+stroke-width: 5;
+}
+.secondary._15{
+stroke-width: 4;
+}
+.tertiary._15{
+stroke-width: 4;
+}
+.residential._15{
+stroke-width: 2;
+}
+.minorrail._15{
+stroke-width: 1;
+}
+.service._15{
+stroke-width: 1.5;
+}
+
+/*zoom 16*/
+.majorlinks._16{
+stroke-width: 6.5;
+}
+.motorway._16 {
+stroke-width: 10;
+}
+.trunk_primary._16 {
+stroke-width: 6;
+}
+.secondary._16{
+stroke-width: 6;
+}
+.tertiary._16{
+stroke-width: 5;
+}
+.residential._16{
+stroke-width: 5;
+}
+.minorrail._16{
+stroke-width: 1.5;
+}
+.service._16{
+stroke-width: 2.5;
+}
+
+/*zoom 17*/
+.majorlinks._17{
+stroke-width: 6.5;
+}
+.motorway._17 {
+stroke-width: 12;
+}
+.trunk_primary._17 {
+stroke-width: 8;
+}
+.secondary._17{
+stroke-width: 7;
+}
+.tertiary._17{
+stroke-width: 6;
+}
+.residential._17{
+stroke-width: 6;
+}
+.minorrail._17{
+stroke-width: 1.5;
+}
+.service._17{
+stroke-width: 3.5;
+}
+/*zoom 18*/
+.majorlinks._18{
+stroke-width: 6.5;
+}
+.motorway._18 {
+stroke-width: 12;
+}
+.trunk_primary._18 {
+stroke-width: 8;
+}
+.secondary._18{
+stroke-width: 7;
+}
+.tertiary._18{
+stroke-width: 6;
+}
+.residential._18{
+stroke-width: 6;
+}
+.minorrail._18{
+stroke-width: 1.5;
+}
+.service._18{
+stroke-width: 3.5;
+}
