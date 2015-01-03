@@ -15,20 +15,12 @@
 			vector-effect: non-scaling-stroke;
 			stroke-linejoin: round;
 			stroke: white;
+			stroke-width: .3;
 			fill : steelblue;
 			stroke-linecap: round;
 		}
 		.rectile {
 			fill: white; }
-
-		.neighborhoods{
-			stroke: red;		
-			fill: transparent;	
-		}
-		.neighborhoods:hover{
-			fill: rgba(0,0,0,.2);
-		}
-
 
 		</style>
 
@@ -40,42 +32,42 @@
 			var po = org.polymaps;
 
 			var mapDiv = d3.select('body')
-			.append('div').append('svg').attr('class', 'map')
+			    .append('div').append('svg').attr('class', 'map')
 
 			var requestParams = {
-				invertTileY: true,
-				invertY: false,
-				s: 5,
-				ringSpan: 7,
-				srid: 4326
+			  invertTileY: true,
+			  invertY: false,
+			  s: 5,
+			  ringSpan: 7,
+			  srid: 4326,
+			  layers: 'county'
 			};
 
-			var url = "http://tiles.mapsense.co/tilist/tile/citrus/{Z}/{X}/{Y}.topojson?";
+			var url = "http://staging-tiles.mapsense.co/tilist/tile/canon_demo/{Z}/{X}/{Y}.topojson?";
 			url += Object.keys(requestParams).map(function(k) {
-				return k + '=' + requestParams[k];
+			  return k + '=' + requestParams[k];
 			}).join('&');
 			var map = po.map()
-			.container(mapDiv.node())
-			.add(po.interact())
-			.center({lon: -122.44935376214322, lat: 37.75751081955728})
-			.zoom(13.5);
+				.container(mapDiv.node())
+				.add(po.interact())
+				.center({lon: -84.47559396442189, lat: 31.770941303868554})
+				.zoom(6);
 
+			var colorRamp = d3.scale.linear()
+			    .domain([0, .15])
+			    .range(['rgb(247,251,255)', 'rgb(8,48,107)'])
+			  
 			var tj = po.d3TopoJson()
-			.url(url)
-			.attr('class', "mapFeatures")
-			.tile(true)
-			.clip(true);
+				.url(url)
+				.style("fill", function(feature){
+					return colorRamp(feature.properties.unemployment)
+				})
+				.attr("class", "mapFeatures")
+				.tile(true)
+				.clip(true);
 
 			map.add(tj);
 
-			d3.json("data/planning_neighborhoods.topojson", function(topo){
-				var geo = topojson.feature(topo,topo.objects["projected_neighborhoods"]);
-				map.add(po.geoJson()
-					.features(geo.features)
-					.on("show", po.stylist().attr("class", "neighborhoods"))
-					)
-			})
-			
 		</script>
 	</body>
 	</html>
