@@ -1649,7 +1649,7 @@ po.d3GeoJson = function(fetch) {
   function transition(path) {
     path.transition()
       .duration(6000)
-      .attrTween("stroke-dasharray", tweenDash);
+      .attrTween("stroke-dasharray", tweenDash)
   }
 
   function tweenDash() {
