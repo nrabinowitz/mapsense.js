@@ -18,21 +18,8 @@
 			fill : steelblue;
 			stroke-linecap: round;
 		}
-		path{
-			fill: none;
-		}
 		.rectile {
 			fill: white; }
-
-		.neighborhoods{
-			stroke: red;		
-			fill: transparent;	
-		}
-		.neighborhoods:hover{
-			fill: rgba(0,0,0,.2);
-		}
-
-
 		</style>
 
 	</head>
@@ -43,46 +30,34 @@
 			var po = org.polymaps;
 
 			var mapDiv = d3.select('body')
-			.append('div').append('svg').attr('class', 'map')
+			    .append('div').append('svg').attr('class', 'map')
 
 			var requestParams = {
-				invertTileY: true,
-				invertY: false,
-				s: 5,
-				ringSpan: 7,
-				srid: 4326
+			  invertTileY: true,
+			  invertY: false,
+			  s: 5,
+			  ringSpan: 7,
+			  srid: 4326
 			};
 
-			var url = "http://tiles.mapsense.co/tilist/tile/citrus/{Z}/{X}/{Y}.topojson?";
+			var url = "http://tiles.mapsense.co/tilist/tile/flakar/{Z}/{X}/{Y}.topojson?";
 			url += Object.keys(requestParams).map(function(k) {
-				return k + '=' + requestParams[k];
+			  return k + '=' + requestParams[k];
 			}).join('&');
-
-
 			var map = po.map()
-			.container(mapDiv.node())
-			.add(po.interact())
-			.center({lon: -122.44935376214322, lat: 37.75751081955728})
-			.zoom(13.5);
-
+				.container(mapDiv.node())
+				.add(po.interact())
+				.center({lon: -122.4, lat: 37.8})
+				.zoom(14);
 
 			var tj = po.d3TopoJson()
-			.url(url)
-			.attr('class', "mapFeatures")
-			.tile(true)
-			.clip(true);
+				.url(url)
+				.attr('class', "mapFeatures")
+				.tile(true)
+				.clip(true);
 
 			map.add(tj);
 
-
-			d3.json("data/planning_neighborhoods.topojson", function(topo){
-				var geo = topojson.feature(topo,topo.objects["projected_neighborhoods"]);
-				map.add(po.geoJson()
-					.features(geo.features)
-					.on("show", po.stylist().attr("class", "neighborhoods"))
-					)
-			})
-			
 		</script>
 	</body>
 	</html>

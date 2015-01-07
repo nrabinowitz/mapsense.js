@@ -1,0 +1,143 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script src="http://d3js.org/topojson.v1.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="https://rawgit.com/erex78/a488f626e196e43adec9/raw/5aa537595814231ca7e0e71382c8967cbbec4c78/polymaps.js" charset="utf-8"></script>
+
+	<style>
+		.map {
+			background-color: white;
+			width: 100%;
+			height: 100%;
+		}
+		.mapFeatures {
+			vector-effect: non-scaling-stroke;
+			stroke-linejoin: round;
+			stroke: none;
+			fill: none;
+			stroke-linecap: round;
+		}
+		.rectile {
+			fill: rgba(0,0,0,.8); 
+		}
+		.histDiv{
+			position: absolute; 
+			bottom: 70px;
+			width: 420px;
+			left: 15px;
+			height: 100px;
+		}
+		.histDiv svg{
+			padding: 15px;
+		}
+		.bar {
+			  fill: steelblue;
+		}
+		.bar:hover{
+			stroke: red;
+		}
+		.axis{
+			fill: white;
+			stroke: none;
+			font-weight: 200;
+		}
+		.axis path{
+			display: none;
+		}
+		.axis text {
+			  font: 10px sans-serif;
+			}
+		.axis path,
+		.axis line {
+		  fill: white;
+		  stroke: white;
+		  shape-rendering: crispEdges;
+		}
+
+		</style>
+
+	</head>
+
+	<body>
+		<script>
+
+			var po = org.polymaps;
+			var color = d3.scale.linear()
+		      .domain([0, 900, 2000])
+		      .range(["green", "yellow", "white"]);
+
+			var mapDiv = d3.select('body')
+			    .append('div').append('svg').attr('class', 'map')
+
+			var requestParams = {
+			  invertTileY: true,
+			  invertY: false,
+			  s: 5,
+			  ringSpan: 7,
+			  srid: 4326,
+			  select: "*",
+			  where: ""
+			};
+
+			var url = "http://staging-tiles.mapsense.co/tilist/tile/flakar/{Z}/{X}/{Y}.topojson?";
+			url += Object.keys(requestParams).map(function(k) {
+			  return k + '=' + requestParams[k];
+			}).join('&');
+			var map = po.map()
+				.container(mapDiv.node())
+				.add(po.interact())
+				.center({lon: -19.773577563609845, lat: 64.79210857475152})
+				.zoom(8)
+				.zoomRange([5,19])
+
+			var tj = po.d3TopoJson()
+				.url(url)
+				.style("fill", function(d){
+
+					return color(d.properties.Z);
+				})
+				.attr("class", function(d){
+					return "_" + d.properties.Z + " mapFeatures"; 
+				})
+				.tile(true)
+				.clip(true);
+
+			map.add(tj);
+
+			svg = d3.select("body")
+			  .append("div")
+			  .attr("class", "histDiv")
+			  .append("svg")
+			  .style("width", '100%')
+
+			svg.append("g").selectAll(".bar")
+			  .data(d3.range(0,2100,100))
+			  .enter()
+			  .append("rect")
+			  .attr("class", "bar")
+			  .attr("x", function(d,i){return i*20;})
+			  .style("fill", function(d){return color(d)})
+			  .attr("width", 18)
+			  .attr("y", 100)
+			  .attr("height", 30)
+			  .on("mouseover", function(d){
+			  	d3.selectAll("._" + d).style("stroke", "red")
+			  })
+			  .on("mouseout", function(d){
+			  	d3.selectAll("._" + d).style("stroke", "none")
+			  })
+
+			x = d3.scale.linear().range([0,400]).domain([0,2000])
+			xAxis = d3.svg.axis()
+			  .scale(x)
+			  .orient("bottom")
+			svg.append("g")
+			  .attr("class", "axis")
+			  .attr("transform", "translate(10," + 130 + ")")
+			  .call(xAxis)
+
+
+		</script>
+	</body>
+	</html>
