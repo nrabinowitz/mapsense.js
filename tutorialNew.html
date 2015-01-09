@@ -1,0 +1,201 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Mapsense Tutorials</title>
+
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <script src="js/polymaps-transition.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="http://d3js.org/topojson.v1.min.js" charset="utf-8"></script>
+
+
+    <style>
+        path {
+      vector-effect: non-scaling-stroke;
+      stroke-linejoin: round;
+      stroke: grey;
+      fill: none;
+      stroke-linecap: round;
+    }
+    .rectile {
+      fill: white; }
+      .desc{
+        padding: 30px;
+      }
+      body {
+        font-family: 'Open Sans';
+        padding-top: 50px;
+      }
+      .tutorialContainer{
+        padding: 5px;
+        margin: 0px;
+
+        position: relative;
+      }
+      .tutorialContainer a{
+        border: none;
+        margin-bottom: 0px;
+
+      }
+      .tutorialLabel{
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        
+        
+      }
+
+      .tutorialText{ 
+         color: rgba(255,255,255,.9); 
+         font-size: 24px; 
+         font-weight: 400;
+         background: rgba(0, 0, 0, 0.7);
+         padding: 5px;
+         padding-left: 10px;
+         padding-right: 7px;
+     }
+
+     .subText{
+        font-size: 14px !important;
+        font-weight: 200;
+        color: rgba(255,255,255,.8); 
+        background: rgba(0, 0, 0, 0.7);
+        padding: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-top: 7px;
+        width: 75%;
+     }
+
+.lead{
+  background-image: url("img/background.png") ;
+  font-weight: 400;
+  border: none;
+}
+body{
+   background-image: url("img/background.png") ;
+}
+   </style>
+
+ </head>
+
+ <body>
+  <div class='page-header lead' style='padding-top: 10px; margin-top: 0; margin-bottom:0; color: #fff'>
+    <div class='container' style='padding: 20px'>
+      <h1 class='' style='font-size:50px; margin-bottom:0px; margin-top:0px'> TUTORIALS </h1>
+      <h2 style='margin-top:5px'><small style='color: #fff; font-weight: 200; font-size:18px'> Jumpstart your map visualizations </small></h2>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><img src='img/Mapsense_Horiz_White.png' height='22px'></img></a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a  href="tutorial.html">Tutorials</a></li>
+          <li><a href="http://github.com/mapsense/polymaps" target="_blank">Documentation</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+
+
+  <div class="container" >
+
+    <div class="row" >
+
+    
+      <div class = "col-md-4 col-sm-6 tutorialContainer">
+        <a href="http://bl.ocks.org/erex78/a98253278e2863f472df" class="thumbnail">
+          <img src="img/makemap.png" ></img>
+          <h2 class="tutorialLabel"> <span class="tutorialText"> MAKE A MAP </span><br/> <div class='subText'>Start here - get an interactive vector map with a few lines of code.</div> </h2>
+        </a>
+      </div>
+
+      <div class = "col-md-4 col-sm-6 tutorialContainer">
+        <a href="http://bl.ocks.org/erex78/d83a7e8588c31d897801" class="thumbnail">
+          <img src="img/pretty.png" ></img>
+          <h2 class="tutorialLabel"> <span class="tutorialText"> STYLE IT</span><br/> <div class='subText'>Just use CSS to make the map look exactly how you want it. </div> </h2>
+        </a>
+      </div>
+
+      <div class = "col-md-4 col-sm-6 tutorialContainer">
+        <a href="http://bl.ocks.org/erex78/979667a7beaeeb26851f" class="thumbnail">
+          <img src="img/geojson.png" ></img>
+          <h2 class="tutorialLabel"> <span class="tutorialText"> DRAW YOUR GEOJSON </span><br/> <div class='subText'>Add static geoJson files to the map with few more lines of code. Mapsense.js is built for vector data.</div> </h2>
+        </a>
+      </div>
+
+      <div class = "col-md-4 col-sm-6 tutorialContainer">
+        <a href="http://bl.ocks.org/erex78/3f83c87203ce8f664e60" class="thumbnail">
+          <img src="img/choro.png" ></img>
+          <h2 class="tutorialLabel"> <span class="tutorialText"> CREATE CHOROPLETHS </span><br/> <div class='subText'>Create stunning choropleths that reflect a range of values in your data.  </div> </h2> </h2>
+        </a>
+      </div>
+
+      <div class = "col-md-4 col-sm-6 tutorialContainer">
+        <a href="http://bl.ocks.org/erex78/718a91e62dae0d48abf6" class="thumbnail">
+          <img src="img/iceland.png" ></img>
+          <h2 class="tutorialLabel"> <span class="tutorialText"> CRAFT YOUR VISUALIZATION </span><br/> <div class='subText'>By accessing feature meta-data directly from map elements, you can easily make amazing, interactive visualizations.  </div> </h2>
+        </a>
+      </div>  
+
+      <div class = "col-md-4 col-sm-6 tutorialContainer">
+        <a href="http://bl.ocks.org/erex78/11171492c43c38edff25" class="thumbnail">
+          <img src="img/raster.png" ></img>
+          <h2 class="tutorialLabel"> <span class="tutorialText">RASTER IF YOU HAVE TO</span><br/> <div class='subText'>Use map tiles from any source. </div> </h2>
+        </a>
+      </div>
+
+      <div class = "col-md-4 col-sm-6 tutorialContainer">
+        <a href="http://bl.ocks.org/erex78/6ab6607321630e3db24c" class="thumbnail">
+          <img src="img/data.png" ></img>
+          <h2 class="tutorialLabel"> <span class="tutorialText"> DISPLAY YOUR DATA</span><br/> <div class='subText'> Easily map and style data from CSV and other files. </div> </h2>
+        </a>
+      </div>  
+
+      <div class = "col-md-4 col-sm-6 tutorialContainer">
+        <a href="http://bl.ocks.org/erex78/c879a8db4c444a7b8cdc" class="thumbnail">
+          <img src="img/pan.gif" ></img>
+          <h2 class="tutorialLabel"> <span class="tutorialText"> ANIMATE</span><br/> <div class='subText'> Use custom D3 animations to pan the map around the world. </div> </h2>
+        </a>
+      </div>        
+
+
+    </div>
+
+
+
+
+
+    <br>
+
+
+    <footer>
+      <p>&copy; Mapsense 2014</p>
+    </footer>
+  </div> <!-- /container -->
+
+
+</body>
+
+</html>
+

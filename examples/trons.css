@@ -1,0 +1,140 @@
+.labels {
+	fill: black;
+}
+.map {
+	background-color: white;
+}
+path {
+	vector-effect: non-scaling-stroke;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+}
+.rectile {
+	fill: rgb(48, 48, 48);
+	stroke-width: 0;
+}
+.land_polygons_complete {
+	fill: none;
+	stroke: rgb(255, 255, 255);
+	stroke-width: 0.6;
+}
+.water {
+	fill: rgba(100,150,250,0);
+	stroke: black;
+	stroke-width: .1;
+}
+.water4 {
+	stroke: rgb(143, 157, 227);
+	stroke-width: 0.3;
+}
+.water10 {
+	stroke: rgb(81, 81, 128);
+	stroke-width: 0;
+}
+.water13 {
+	stroke: rgb(79, 146, 234);
+	stroke-width: 0.7;
+}
+.waterway13 {
+	stroke: rgb(110, 128, 223);
+	stroke-width: 1;
+	opacity: .3
+  fill: none;
+}
+.waterway15 {
+	stroke: rgb(95, 123, 227);
+	stroke-width: 1;
+	opacity: .3;
+	fill: none;
+}
+.landuse_natural5 {
+	fill: rgba(100,200,100,0);
+	stroke-width: .55;
+	stroke: rgb(82, 108, 82);
+}
+.landuse_natural10 {
+	fill: rgba(100,200,100,0);
+	stroke-width: .55;
+	stroke: rgb(43, 133, 18);
+}
+.landuse_natural13 {
+	fill: rgba(100,200,100,0);
+	stroke-width: .55;
+	stroke: rgb(146, 182, 146);
+}
+.landuse_building13 {
+	fill: rgba(250,250,250,0);
+	stroke: rgb(204, 184, 184);
+	stroke-width: .52;
+}
+.landuse_school13 {
+	fill: rgba(200,205,225,0);
+	stroke: rgb(173, 163, 209);
+}
+.landuse_other13 {
+	fill: rgba(85, 44, 44, 0);
+	stroke: rgb(191, 86, 86);
+}
+.landuse_urban11 {
+	fill: rgba(0,0,0,0);
+	stroke: rgb(152, 166, 195);
+}
+.roads {
+	stroke-linejoin: round;
+	fill: none;
+}
+.ne_roads {
+	stroke: rgb(223, 113, 113);
+	stroke-width: 1;
+}
+.motorway {
+	stroke: rgb(154, 89, 50);
+	stroke-width: 1;
+}
+.trunk_primary {
+	stroke: rgb(225, 190, 190);
+	stroke-width: 1;
+}
+.secondary {
+	stroke: rgb(218, 91, 91);
+	stroke-width: 1;
+}
+.tertiary {
+	stroke: rgb(223, 184, 113);
+	stroke-width: 1;
+}
+.majorlinks {
+	stroke: rgb(218, 198, 160);
+	stroke-width: 1;
+}
+.residential {
+	stroke: rgb(191, 111, 51);
+	stroke-width: 1;
+}
+.minorlinks {
+	stroke: rgb(200, 22, 22);
+	stroke-width: 1;
+}
+.service {
+	stroke: rgb(197, 119, 27);
+	stroke-width: 1;
+}
+.rail {
+	stroke: rgb(241, 192, 135);
+	stroke-dasharray: 3 5;
+	stroke-width: 1;
+}
+.minorrail {
+	stroke: rgb(239, 137, 40);
+	stroke-dasharray: 3 3;
+	stroke-width: 1;
+}
+.runway {
+	stroke-width: black;
+	stroke: rgb(228, 223, 27);
+}
+.path {
+	stroke: rgb(243, 30, 30);
+	stroke-dasharray: 3 3;
+	stroke-width: 1;
+}

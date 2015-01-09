@@ -4,7 +4,7 @@
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	<script src="http://d3js.org/topojson.v1.min.js" charset="utf-8"></script>
 	<script type="text/javascript" src="https://rawgit.com/erex78/a488f626e196e43adec9/raw/5aa537595814231ca7e0e71382c8967cbbec4c78/polymaps.js" charset="utf-8"></script>
-
+    <link href="tron.css" rel="stylesheet">
 	<style>
 		.map {
 			background-color: white;
@@ -13,13 +13,12 @@
 		}
 		.mapFeatures {
 			vector-effect: non-scaling-stroke;
-			stroke-linejoin: round;
-			stroke: white;
-			fill : steelblue;
-			stroke-linecap: round;
+			stroke: grey;
+			fill : none;
 		}
 		.rectile {
-			fill: white; }
+			fill: white;
+		}
 		</style>
 
 	</head>
@@ -47,14 +46,13 @@
 			var map = po.map()
 				.container(mapDiv.node())
 				.add(po.interact())
-				.center({lon: -122.4, lat: 37.8})
-				.zoom(14);
+				.center({lon: -74.01142888140966, lat: 40.70861546602194})
+				.zoom(15.5);
 
 			var tj = po.d3TopoJson()
 				.url(url)
 				.attr('class', "mapFeatures")
-				.tile(true)
-				.clip(true);
+		
 
 			map.add(tj);
 
